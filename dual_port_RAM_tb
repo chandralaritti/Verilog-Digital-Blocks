@@ -1,0 +1,54 @@
+`timescale 1ns / 1ps
+
+module dual_port_RAM_tb;
+
+    // Testbench signals
+    reg [7:0] data;
+    reg [5:0] rd_addr, wr_addr;
+    reg wr_en, rd_clk, wr_clk;
+    wire [7:0] q;
+
+    dual_port_RAM d1(q,data,rd_addr,wr_addr,wr_en,rd_clk,wr_clk);
+    
+    initial begin
+        $monitor("Time = %d \t,wr_en = %b \t,wr_addr = %d \t,rd_addr = %d \t, data = %d \t, q = %d", $time, wr_en, wr_addr, rd_addr, data, q);
+    end
+  
+    always #5 rd_clk = ~rd_clk;  
+    always #10 wr_clk = ~wr_clk; 
+
+    initial begin
+      
+        rd_clk = 0;
+        wr_clk = 0;
+        wr_en = 0;
+        data = 8'b0;
+        wr_addr = 6'b0;
+        rd_addr = 6'b0;
+        
+        #20;
+        
+        wr_en = 1;
+        data = 170;   
+        wr_addr = 0;  
+        #20;
+
+        data = 187;   
+        wr_addr = 1; 
+        #20;
+
+        wr_en = 0;
+
+        rd_addr = 0; 
+        #10;
+        
+        rd_addr = 1; 
+        #10;
+        rd_addr = 2; 
+        #10;
+
+        $stop;
+    end
+
+endmodule
+
