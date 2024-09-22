@@ -11,8 +11,8 @@ This project aims to design and implement key digital components in Verilog usin
 1. **Arithmetic and Logic Unit (ALU)**
    - A fully functional ALU capable of performing arithmetic operations (addition, subtraction) and logic operations (AND, OR, XOR).
    
-2. **D Latch**
-   - A simple D-type latch for basic memory storage.
+2. **D FlipFlop**
+   - A simple D-type FlipFlop for basic memory storage.
      
 3. **Single and Dual Clock FIFO**
    - First-In-First-Out memory implemented for single and dual clock domains for efficient data buffering.
