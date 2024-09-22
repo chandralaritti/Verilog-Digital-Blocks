@@ -14,7 +14,7 @@ module fifo_clk_dual_tb;
   fifo_clk_dual fifo_1(clk_r,clk_w,rst,buf_in,buf_out,wr_en,rd_en,buf_empty,buf_full,fifo_counter);
   
   initial begin
-    $monitor("time: %0t \t, wr_en: %b \t, rd_en: %b \t, buf_in:%d \t, buf_out:%d \t, buf_empty: %b \t, buf_full: %b | fifo_counter: %d",$time, wr_en, rd_en, buf_in, buf_out, buf_empty, buf_full, fifo_counter);
+    $monitor("time: %dt \t, wr_en: %b \t, rd_en: %b \t, buf_in:%d \t, buf_out:%d \t, buf_empty: %b \t, buf_full: %b | fifo_counter: %d",$time, wr_en, rd_en, buf_in, buf_out, buf_empty, buf_full, fifo_counter);
   end
   //Generate the clock
   initial begin
